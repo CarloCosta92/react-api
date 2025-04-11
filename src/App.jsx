@@ -7,10 +7,12 @@ import Card from './components/card';
 function App() {
 
   const [actresses, setActresses] = useState([]);
+  const [actor, setActor] = useState([]);
 
   //inserire www !!!!!
 
   const endpoint = "https://www.freetestapi.com/api/v1/actresses";
+  const endpointMale = "https://www.freetestapi.com/api/v1/actors";
 
 
 
@@ -21,7 +23,17 @@ function App() {
       })
   }
 
-  useEffect(fetchActresses, []);
+  const fetchActor = () => {
+    axios.get(endpointMale)
+      .then(response => {
+        setActor(response.data);
+      })
+  }
+
+  useEffect(() => {
+    fetchActresses();
+    fetchActor();
+  }, []);
 
   console.log(actresses)
 
@@ -40,8 +52,25 @@ function App() {
               <img src={actresses.image} alt={actresses.name} />
             </div>
           </Card>
+        )}
+      </div>
 
+      <hr />
 
+      <h2>Attori</h2>
+
+      <div className='card-container'>
+        {actor.map(actor =>
+          <Card key={actor.id}>
+            <h2> Name : {actor.name}</h2>
+            <p>Birth Date : {actor.birth_year}</p>
+            <p>Nationality : {actor.nationality}</p>
+            <p>Biography : {actor.biography}</p>
+            <p>Awards: {actor.awards}</p>
+            <div className='card-image'>
+              <img src={actor.image} alt={actor.name} />
+            </div>
+          </Card>
         )}
       </div>
 

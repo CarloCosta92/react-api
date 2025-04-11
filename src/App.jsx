@@ -27,6 +27,20 @@ function App() {
 
   return (
     <>
+      <div className='contenitore'>
+        {actresses.map(actresses =>
+          <div key={actresses.id}>
+            <h3> Name : {actresses.name}</h3>
+            <p>Birth Date : {actresses.birth_year}</p>
+            <p>Nationality : {actresses.nationality}</p>
+            <p>Biography : {actresses.biography}</p>
+            <p>Awards: {actresses.awards}</p>
+            <img src={actresses.image} alt={actresses.name} />
+          </div>
+
+
+        )}
+      </div>
 
     </>
   )

@@ -2,6 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import './App.css'
+import Card from './components/card';
 
 function App() {
 
@@ -29,7 +30,7 @@ function App() {
     <>
       <div className='card-container'>
         {actresses.map(actresses =>
-          <div key={actresses.id} className='card'>
+          <Card key={actresses.id}>
             <h2> Name : {actresses.name}</h2>
             <p>Birth Date : {actresses.birth_year}</p>
             <p>Nationality : {actresses.nationality}</p>
@@ -38,7 +39,7 @@ function App() {
             <div className='card-image'>
               <img src={actresses.image} alt={actresses.name} />
             </div>
-          </div>
+          </Card>
 
 
         )}

@@ -40,6 +40,8 @@ function App() {
 
   return (
     <>
+      <h2>Attrici</h2>
+      <hr />
       <div className='card-container'>
         {actresses.map(actresses =>
           <Card key={actresses.id}>
@@ -58,6 +60,7 @@ function App() {
       <hr />
 
       <h2>Attori</h2>
+      <hr />
 
       <div className='card-container'>
         {actor.map(actor =>
@@ -73,6 +76,7 @@ function App() {
           </Card>
         )}
       </div>
+      <hr />
 
     </>
   )
